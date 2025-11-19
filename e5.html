@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projets E5 | Liam Gibergues</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* --- STYLE IDENTIQUE À L'ACCUEIL --- */
+        :root {
+            --primary: #0056b3;
+            --secondary: #eef2f6;
+            --text-dark: #1e293b;
+            --text-light: #64748b;
+            --white: #ffffff;
+            --shadow: 0 10px 30px -10px rgba(0,0,0,0.1);
+            --radius: 12px;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; background-color: var(--secondary); color: var(--text-dark); line-height: 1.6; }
+        a { text-decoration: none; color: inherit; transition: 0.3s; }
+        ul { list-style: none; }
+
+        /* NAV */
+        nav { display: flex; justify-content: space-between; align-items: center; padding: 20px 5%; background: var(--white); position: fixed; width: 100%; top: 0; z-index: 1000; border-bottom: 1px solid #e2e8f0; }
+        .logo { font-weight: 800; font-size: 1.4rem; color: var(--primary); letter-spacing: -1px; }
+        .btn-back { color: var(--text-light); font-weight: 600; display: flex; align-items: center; gap: 8px; }
+        .btn-back:hover { color: var(--primary); }
+
+        /* HEADER */
+        .header-mini { padding: 140px 10% 60px 10%; text-align: center; background: var(--white); border-bottom: 1px solid #e2e8f0; }
+        .header-mini h1 { font-size: 2.5rem; color: var(--text-dark); margin-bottom: 10px; }
+        .header-mini p { color: var(--text-light); font-size: 1.1rem; }
+
+        /* CONTENEUR */
+        .container { max-width: 1200px; margin: 0 auto; padding: 60px 20px; }
+
+        /* TABLEAU BOX */
+        .tableau-box {
+            background: var(--white);
+            border-radius: var(--radius);
+            padding: 50px;
+            text-align: center;
+            box-shadow: var(--shadow);
+            margin-bottom: 80px;
+            border: 2px dashed #cbd5e1;
+        }
+        .tableau-box h2 { margin-bottom: 15px; font-size: 1.8rem; }
+        .tableau-box p { margin-bottom: 30px; color: var(--text-light); }
+        
+        .btn-large-view {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background-color: var(--primary);
+            color: white;
+            padding: 15px 40px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            box-shadow: 0 4px 15px rgba(0, 86, 179, 0.3);
+            transition: 0.3s;
+        }
+        .btn-large-view:hover { transform: translateY(-3px); background-color: #004494; }
+
+        /* GRILLE MINI PROJETS */
+        .section-title { font-size: 1.8rem; margin-bottom: 40px; border-left: 5px solid var(--primary); padding-left: 15px; color: var(--text-dark); }
+        
+        .grid-mini {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .mini-card {
+            background: var(--white);
+            padding: 30px;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            text-align: center;
+            transition: 0.3s;
+            border: 1px solid #e2e8f0;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 100%;
+        }
+        .mini-card:hover { transform: translateY(-5px); border-color: var(--primary); }
+        
+        .mini-card h3 { margin-bottom: 15px; font-size: 1.2rem; font-weight: 700; }
+        .mini-card p { color: var(--text-light); font-size: 0.95rem; margin-bottom: 25px; }
+        
+        .btn-download-small {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            color: var(--text-dark);
+            font-weight: 600;
+            font-size: 0.9rem;
+            background: #f8fafc;
+            cursor: pointer;
+        }
+        .btn-download-small:hover { 
+            border-color: var(--primary); 
+            color: var(--primary); 
+            background: white; 
+        }
+
+        footer { text-align: center; padding: 40px; color: var(--text-light); font-size: 0.8rem; }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">LG.</div>
+        <a href="index.html" class="btn-back">
+            <i class="fa-solid fa-arrow-left"></i> Retour à l'accueil
+        </a>
+    </nav>
+
+    <div class="header-mini">
+        <h1>E5 - Support & Mise à disposition</h1>
+        <p>Tableau de compétences et mini-projets réalisés au cours de l'année.</p>
+    </div>
+
+    <div class="container">
+        
+        <div class="tableau-box">
+            <h2>Tableau de compétences</h2>
+            <p>Consultez ma grille officielle de compétences E5 au format PDF.</p>
+            
+            <a href="tableau.pdf" target="_blank" class="btn-large-view">
+                <i class="fa-solid fa-eye"></i> Voir le Tableau
+            </a>
+        </div>
+
+        <h2 class="section-title">Mini-projets</h2>
+        
+        <div class="grid-mini">
+            
+            <div class="mini-card">
+                <div>
+                    <h3>Mini-projet 1 : Active Directory</h3>
+                    <p>Installation et configuration de base d'un domaine AD sous Windows Server 2022.</p>
+                </div>
+                <a href="projet1.pdf" download class="btn-download-small">
+                    <i class="fa-solid fa-file-arrow-down"></i> Télécharger la doc
+                </a>
+            </div>
+
+            <div class="mini-card">
+                <div>
+                    <h3>Mini-projet 2 : DHCP / DNS</h3>
+                    <p>Mise en place des services réseaux essentiels et test de connectivité clients.</p>
+                </div>
+                <a href="projet2.pdf" download class="btn-download-small">
+                    <i class="fa-solid fa-file-arrow-down"></i> Télécharger la doc
+                </a>
+            </div>
+
+            <div class="mini-card">
+                <div>
+                    <h3>Mini-projet 3 : GLPI</h3>
+                    <p>Installation d'une solution de ticketing sur Debian 11 pour la gestion d'incidents.</p>
+                </div>
+                <a href="projet3.pdf" download class="btn-download-small">
+                    <i class="fa-solid fa-file-arrow-down"></i> Télécharger la doc
+                </a>
+            </div>
+
+            <div class="mini-card">
+                <div>
+                    <h3>Mini-projet 4 : Sauvegardes</h3>
+                    <p>Script PowerShell pour automatiser la sauvegarde des données utilisateurs vers un NAS.</p>
+                </div>
+                <a href="projet4.pdf" download class="btn-download-small">
+                    <i class="fa-solid fa-file-arrow-down"></i> Télécharger la doc
+                </a>
+            </div>
+
+        </div>
+    </div>
+
+    <footer>
+        &copy; 2024 Liam Gibergues - Dossier E5
+    </footer>
+
+</body>
+</html>

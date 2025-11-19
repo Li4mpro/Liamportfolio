@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projets E6 | Liam Gibergues</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* --- STYLE COHÉRENT AVEC L'ACCUEIL --- */
+        :root {
+            --primary: #0056b3;
+            --secondary: #eef2f6;
+            --text-dark: #1e293b;
+            --text-light: #64748b;
+            --white: #ffffff;
+            --shadow: 0 10px 30px -10px rgba(0,0,0,0.1);
+            --radius: 12px;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; background-color: var(--secondary); color: var(--text-dark); line-height: 1.6; }
+        a { text-decoration: none; color: inherit; transition: 0.3s; }
+        ul { list-style: none; }
+
+        /* NAV */
+        nav { 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            padding: 20px 5%; 
+            background: var(--white); 
+            position: fixed; 
+            width: 100%; 
+            top: 0; 
+            z-index: 1000; 
+            border-bottom: 1px solid #e2e8f0; 
+        }
+        .logo { font-weight: 800; font-size: 1.4rem; color: var(--primary); letter-spacing: -1px; }
+        .btn-back { 
+            color: var(--text-light); 
+            font-weight: 600; 
+            display: flex; 
+            align-items: center; 
+            gap: 8px; 
+        }
+        .btn-back:hover { color: var(--primary); }
+
+        /* HEADER E6 */
+        .header-mini { 
+            padding: 140px 10% 60px 10%; 
+            text-align: center; 
+            background: var(--white); 
+            border-bottom: 1px solid #e2e8f0;
+        }
+        .header-mini h1 { font-size: 2.5rem; color: var(--text-dark); margin-bottom: 10px; }
+        .header-mini p { color: var(--text-light); font-size: 1.1rem; }
+
+        /* Conteneur principal */
+        .container { max-width: 1200px; margin: 0 auto; padding: 60px 20px; }
+
+        /* --- BLOC PROJET E6 --- */
+        .project-e6-block {
+            background: var(--white);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            margin-bottom: 60px;
+            padding: 40px;
+            border: 1px solid #e2e8f0;
+        }
+        .project-e6-block h2 {
+            font-size: 1.8rem;
+            color: var(--text-dark);
+            margin-bottom: 30px;
+            border-left: 5px solid var(--primary);
+            padding-left: 15px;
+        }
+
+        .docs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .doc-card {
+            background: var(--secondary);
+            border-radius: var(--radius);
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 5px 15px -5px rgba(0,0,0,0.05);
+            transition: 0.3s;
+            border: 1px solid #e2e8f0;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 100%;
+        }
+        .doc-card:hover { transform: translateY(-5px); border-color: var(--primary); }
+
+        .doc-card h3 {
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+            color: var(--text-dark);
+        }
+        .doc-card p {
+            font-size: 0.85rem;
+            color: var(--text-light);
+            margin-bottom: 25px;
+        }
+
+        .btn-doc {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            width: 100%;
+            padding: 10px;
+            border: 1px solid var(--primary);
+            border-radius: 6px;
+            color: var(--primary);
+            font-weight: 600;
+            font-size: 0.9rem;
+            background: var(--white);
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .btn-doc:hover {
+            background-color: var(--primary);
+            color: white;
+            box-shadow: 0 2px 8px rgba(0, 86, 179, 0.2);
+        }
+
+        /* Footer simple */
+        footer { text-align: center; padding: 40px; color: var(--text-light); font-size: 0.8rem; }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">LG.</div>
+        <a href="index.html" class="btn-back">
+            <i class="fa-solid fa-arrow-left"></i> Retour à l'accueil
+        </a>
+    </nav>
+
+    <div class="header-mini">
+        <h1>E6 - Administration des systèmes et des réseaux</h1>
+        <p>Conception, implémentation et tests de solutions d'infrastructure en stage.</p>
+    </div>
+
+    <div class="container">
+        
+        <div class="project-e6-block">
+            <h2>Projet 1 : Migration d'infrastructure réseau</h2>
+            <div class="docs-grid">
+                
+                <div class="doc-card">
+                    <h3>Documentation technique</h3>
+                    <p>Détails de la préparation, de la configuration des équipements et de l'installation physique.</p>
+                    <a href="e6-projet1-doc-tech.pdf" target="_blank" class="btn-doc">
+                        <i class="fa-solid fa-eye"></i> Voir la documentation
+                    </a>
+                </div>
+
+                <div class="doc-card">
+                    <h3>Documentation utilisateur</h3>
+                    <p>Guide pas-à-pas pour les utilisateurs après la migration (connexion, accès aux ressources).</p>
+                    <a href="e6-projet1-doc-user.pdf" target="_blank" class="btn-doc">
+                        <i class="fa-solid fa-eye"></i> Voir la documentation
+                    </a>
+                </div>
+
+                <div class="doc-card">
+                    <h3>Rapport de tests</h3>
+                    <p>Synthèse des tests réalisés, résultats et vérification de la conformité du nouveau réseau.</p>
+                    <a href="e6-projet1-rapport-tests.pdf" target="_blank" class="btn-doc">
+                        <i class="fa-solid fa-eye"></i> Voir le rapport
+                    </a>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="project-e6-block">
+            <h2>Projet 2 : Déploiement d'une solution de virtualisation</h2>
+            <div class="docs-grid">
+                
+                <div class="doc-card">
+                    <h3>Documentation technique</h3>
+                    <p>Plan d'architecture, installation et configuration des hyperviseurs et machines virtuelles.</p>
+                    <a href="e6-projet2-doc-tech.pdf" target="_blank" class="btn-doc">
+                        <i class="fa-solid fa-eye"></i> Voir la documentation
+                    </a>
+                </div>
+
+                <div class="doc-card">
+                    <h3>Documentation utilisateur</h3>
+                    <p>Procédures pour les administrateurs et utilisateurs des machines virtuelles.</p>
+                    <a href="e6-projet2-doc-user.pdf" target="_blank" class="btn-doc">
+                        <i class="fa-solid fa-eye"></i> Voir la documentation
+                    </a>
+                </div>
+
+                <div class="doc-card">
+                    <h3>Rapport de tests</h3>
+                    <p>Évaluation des performances, de la stabilité et de la sécurité de l'environnement virtualisé.</p>
+                    <a href="e6-projet2-rapport-tests.pdf" target="_blank" class="btn-doc">
+                        <i class="fa-solid fa-eye"></i> Voir le rapport
+                    </a>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+    <footer>
+        &copy; 2024 Liam Gibergues - Dossier E6
+    </footer>
+
+</body>
+</html>
