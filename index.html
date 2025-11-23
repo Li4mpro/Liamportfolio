@@ -40,44 +40,35 @@
 
         * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
 
+        /* --- NETTOYAGE FORCÉ DES FLÈCHES PARASITES --- */
+        .dossier-box::before, .dossier-box::after,
+        .btn::before, .btn::after,
+        .project-card::before, .project-card::after,
+        .btn-primary::before, .btn-primary::after {
+            content: none !important;
+            display: none !important;
+            border: none !important;
+        }
+
         body {
             font-family: 'Inter', sans-serif;
-            background-color: var(--white); /* Changé pour s'adapter au dark mode */
+            background-color: var(--white);
             color: var(--text-dark);
             line-height: 1.6;
             transition: background-color 0.3s, color 0.3s;
         }
 
-        /* Ajustement spécifique pour le header gradient en dark mode */
-        body.dark-mode header {
-            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
-        }
-        body.dark-mode .skill-item, 
-        body.dark-mode .alternance-card, 
-        body.dark-mode .dossier-box,
-        body.dark-mode .alternance-visual {
-            border-color: var(--border-color);
-        }
-        /* Fond alternatif pour les sections paires */
-        body.dark-mode .bg-alt {
-            background-color: #0b1120; /* Encore plus sombre que secondary */
-        }
+        body.dark-mode header { background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); }
+        body.dark-mode .bg-alt { background-color: #0b1120; }
 
         a { text-decoration: none; color: inherit; transition: 0.3s; }
         ul { list-style: none; }
 
         /* --- NAVIGATION --- */
         nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px 5%;
-            position: fixed;
-            width: 100%;
-            top: 0;
-            background: var(--nav-bg);
-            backdrop-filter: blur(10px);
-            z-index: 1000;
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 20px 5%; position: fixed; width: 100%; top: 0;
+            background: var(--nav-bg); backdrop-filter: blur(10px); z-index: 1000;
             border-bottom: 1px solid var(--border-color);
             transition: background 0.3s, border 0.3s;
         }
@@ -86,236 +77,153 @@
         .nav-links { display: flex; gap: 30px; font-weight: 500; font-size: 0.95rem; }
         .nav-links a:hover { color: var(--primary); }
 
-        /* BOUTON THEME */
         .theme-toggle {
-            background: none;
-            border: none;
-            color: var(--text-dark);
-            font-size: 1.2rem;
-            cursor: pointer;
-            margin-left: 20px;
-            transition: 0.3s;
+            background: none; border: none; color: var(--text-dark);
+            font-size: 1.2rem; cursor: pointer; margin-left: 20px; transition: 0.3s;
         }
         .theme-toggle:hover { color: var(--primary); transform: rotate(15deg); }
 
         /* --- HERO SECTION --- */
         header {
-            height: 90vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: flex-start;
-            padding: 0 10%;
-            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
-            position: relative;
-            overflow: hidden;
-            transition: background 0.3s;
+            height: 90vh; display: flex; flex-direction: column; justify-content: center; align-items: flex-start;
+            padding: 0 10%; background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+            position: relative; overflow: hidden; transition: background 0.3s;
         }
-
         header::before {
-            content: '';
-            position: absolute;
-            top: -100px; right: -100px;
-            width: 400px; height: 400px;
-            background: rgba(0, 86, 179, 0.1);
-            border-radius: 50%;
-            z-index: 0;
+            content: ''; position: absolute; top: -100px; right: -100px;
+            width: 400px; height: 400px; background: rgba(0, 86, 179, 0.1);
+            border-radius: 50%; z-index: 0;
         }
-
-        header h2 {
-            font-size: 1.2rem;
-            color: var(--primary);
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-bottom: 10px;
-        }
-
-        header h1 {
-            font-size: 4rem;
-            line-height: 1.1;
-            margin-bottom: 20px;
-            color: var(--text-dark);
-            z-index: 1;
-        }
-
-        header p {
-            font-size: 1.2rem;
-            color: var(--text-light);
-            max-width: 700px;
-            margin-bottom: 40px;
-            z-index: 1;
-        }
-
-        .highlight-company {
-            color: var(--text-dark);
-            font-weight: 700;
-            border-bottom: 2px solid var(--omexom-green);
-        }
+        header h2 { font-size: 1.2rem; color: var(--primary); font-weight: 600; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 10px; }
+        header h1 { font-size: 4rem; line-height: 1.1; margin-bottom: 20px; color: var(--text-dark); z-index: 1; }
+        header p { font-size: 1.2rem; color: var(--text-light); max-width: 700px; margin-bottom: 40px; z-index: 1; }
+        .highlight-company { color: var(--text-dark); font-weight: 700; border-bottom: 2px solid var(--omexom-green); }
 
         .btn-group { display: flex; gap: 15px; z-index: 1; }
-
-        .btn {
-            padding: 14px 35px;
-            border-radius: 50px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: 0.3s;
-        }
-        .btn-primary {
-            background-color: var(--primary);
-            color: white; /* Reste blanc même en dark mode */
-            box-shadow: 0 4px 15px rgba(0, 86, 179, 0.3);
-            border: none;
-        }
+        .btn { padding: 14px 35px; border-radius: 50px; font-weight: 600; cursor: pointer; transition: 0.3s; position: relative; }
+        .btn-primary { background-color: var(--primary); color: white; border: none; }
         .btn-primary:hover { transform: translateY(-2px); background-color: #004494; }
-        /* Ajustement hover dark mode pour primary */
-        body.dark-mode .btn-primary:hover { background-color: #3b82f6; }
-        
-        .btn-outline {
-            border: 2px solid var(--text-dark);
-            color: var(--text-dark);
-            background: transparent;
-        }
+        .btn-outline { border: 2px solid var(--text-dark); color: var(--text-dark); background: transparent; }
         .btn-outline:hover { background-color: var(--text-dark); color: var(--white); }
-        body.dark-mode .btn-outline:hover { color: #0f172a; } /* Texte noir sur bouton blanc en dark mode */
+        body.dark-mode .btn-outline:hover { color: #0f172a; }
 
         /* --- SECTIONS --- */
         section { padding: 100px 10%; transition: background-color 0.3s; }
-        
+        .bg-alt { background-color: var(--secondary); }
         .section-head { margin-bottom: 60px; }
         .section-head h2 { font-size: 2.5rem; font-weight: 800; color: var(--text-dark); }
         .section-head p { color: var(--text-light); margin-top: 10px; font-size: 1.1rem; }
         .divider { width: 60px; height: 5px; background-color: var(--primary); margin-top: 15px; border-radius: 3px;}
 
         /* --- COMPETENCES --- */
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 30px;
-        }
+        .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 30px; }
         .skill-item {
-            background: var(--white);
-            padding: 30px;
-            border-radius: var(--radius);
-            box-shadow: var(--shadow);
-            text-align: center;
-            transition: 0.3s;
-            border: 1px solid var(--border-color);
+            background: var(--white); padding: 30px; border-radius: var(--radius);
+            box-shadow: var(--shadow); text-align: center; transition: 0.3s; border: 1px solid var(--border-color);
         }
         .skill-item:hover { transform: translateY(-5px); border-color: var(--primary); }
         .skill-item i { font-size: 2.5rem; color: var(--primary); margin-bottom: 15px; }
         .skill-item h3 { font-size: 1.1rem; margin-bottom: 5px; color: var(--text-dark); }
         .skill-item span { font-size: 0.9rem; color: var(--text-light); }
 
-        /* --- ALTERNANCE SECTION --- */
+        /* --- ALTERNANCE --- */
         .alternance-card {
-            background: var(--white);
-            border-radius: 20px;
-            box-shadow: var(--shadow);
-            display: flex;
-            flex-wrap: wrap;
-            overflow: hidden;
-            border: 1px solid var(--border-color);
+            background: var(--white); border-radius: 20px; box-shadow: var(--shadow);
+            display: flex; flex-wrap: wrap; overflow: hidden; border: 1px solid var(--border-color);
             transition: background 0.3s, border 0.3s;
         }
         .alternance-visual {
-            flex: 1;
-            min-width: 300px;
-            background: var(--white);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 40px;
+            flex: 1; min-width: 300px; background: var(--white);
+            display: flex; align-items: center; justify-content: center; padding: 40px;
             border-right: 1px solid var(--border-color);
         }
-        .alternance-visual img {
-            max-width: 100%;
-            max-height: 200px;
-            object-fit: contain;
-        }
-        /* Inversion image logo si besoin en dark mode (optionnel, ici non activé) */
-        
-        .alternance-content {
-            flex: 2;
-            padding: 50px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
+        .alternance-visual img { max-width: 100%; max-height: 200px; object-fit: contain; }
+        .alternance-content { flex: 2; padding: 50px; display: flex; flex-direction: column; justify-content: center; }
         .alternance-tag {
-            display: inline-block;
-            background-color: #d1fae5;
-            color: #065f46;
-            padding: 5px 15px;
-            border-radius: 20px;
-            font-weight: 700;
-            font-size: 0.8rem;
-            width: fit-content;
-            margin-bottom: 20px;
+            display: inline-block; background-color: #d1fae5; color: #065f46;
+            padding: 5px 15px; border-radius: 20px; font-weight: 700; font-size: 0.8rem;
+            width: fit-content; margin-bottom: 20px;
         }
-        /* Tag plus sombre en dark mode */
         body.dark-mode .alternance-tag { background-color: #064e3b; color: #d1fae5; }
-
-        .info-row {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            margin-top: 10px;
-            color: var(--text-light);
-            font-size: 0.95rem;
-        }
+        .info-row { display: flex; align-items: center; gap: 10px; margin-top: 10px; color: var(--text-light); }
         .info-row i { color: var(--omexom-green); }
 
-        /* --- PROJETS GÉNÉRAL --- */
-        .bg-alt { background-color: var(--secondary); }
-
-        /* --- BOUTON DOSSIER E5/E6 --- */
+        /* --- DOSSIERS E5/E6 --- */
         .dossier-box {
-            text-align: center; 
-            background: var(--white); 
-            padding: 50px; 
-            border-radius: 12px; 
-            box-shadow: var(--shadow); 
-            border: 1px solid var(--border-color);
-            transition: background 0.3s;
+            text-align: center; background: var(--white); padding: 50px;
+            border-radius: 12px; box-shadow: var(--shadow);
+            border: 1px solid var(--border-color); transition: background 0.3s; position: relative;
         }
         .dossier-box i { font-size: 4rem; color: var(--primary); margin-bottom: 20px; }
         .dossier-box h3 { font-size: 1.5rem; margin-bottom: 15px; color: var(--text-dark); }
         .dossier-box p { color: var(--text-light); margin-bottom: 30px; max-width: 600px; margin-left: auto; margin-right: auto; }
         .dossier-box .btn-primary { padding: 15px 40px; text-decoration: none; }
 
+        /* --- VEILLE TECHNO --- */
+        .veille-container { display: flex; justify-content: center; margin-bottom: 50px; }
+        .veille-card {
+            background: var(--white); border: 1px solid var(--border-color);
+            border-radius: var(--radius); padding: 30px; display: flex; gap: 20px;
+            align-items: flex-start; max-width: 900px; width: 100%;
+            box-shadow: var(--shadow); transition: 0.3s;
+        }
+        .veille-card:hover { transform: translateY(-5px); border-color: var(--primary); }
+        
+        .veille-icon {
+            background: rgba(0, 86, 179, 0.1); color: var(--primary);
+            min-width: 70px; height: 70px; border-radius: 12px;
+            display: flex; align-items: center; justify-content: center; font-size: 2rem;
+        }
+        
+        .veille-content h3 { font-size: 1.4rem; margin-bottom: 15px; color: var(--text-dark); }
+        
+        /* Liste des points clés de la veille */
+        .veille-points { list-style: none; margin-bottom: 20px; }
+        .veille-points li { margin-bottom: 10px; font-size: 0.95rem; color: var(--text-light); display: flex; gap: 10px; }
+        .veille-points li i { color: var(--omexom-green); margin-top: 5px; } /* Check verte */
+        .veille-points strong { color: var(--text-dark); }
+
+        .veille-badge {
+            display: inline-block; font-size: 0.75rem; text-transform: uppercase;
+            font-weight: 700; color: var(--primary); background: var(--secondary);
+            padding: 4px 10px; border-radius: 4px; margin-bottom: 15px;
+        }
+        .veille-sources small { color: var(--text-light); font-style: italic; font-size: 0.85rem; border-top: 1px solid var(--border-color); padding-top: 10px; display: block; width: 100%; }
+        
+        body.dark-mode .veille-icon { background: rgba(96, 165, 250, 0.2); }
+
+        .outils-box {
+            background: var(--secondary); padding: 30px; border-radius: var(--radius);
+            text-align: center; border: 1px solid var(--border-color);
+        }
+        .outils-box h3 { font-size: 1.1rem; color: var(--text-dark); margin-bottom: 20px; }
+        .outils-list { display: flex; justify-content: center; flex-wrap: wrap; gap: 15px; }
+        .outil-tag {
+            background: var(--white); padding: 8px 20px; border-radius: 30px;
+            font-size: 0.9rem; font-weight: 600; color: var(--text-dark);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05); border: 1px solid var(--border-color);
+            display: flex; align-items: center; gap: 8px;
+        }
+        body.dark-mode .outils-box { background: #0b1120; }
+        body.dark-mode .outil-tag { background: #1e293b; }
 
         /* --- CONTACT --- */
         .contact-box {
-            text-align: center;
-            background: var(--primary);
-            color: white;
-            padding: 60px;
-            border-radius: 20px;
+            text-align: center; background: var(--primary); color: white; padding: 60px; border-radius: 20px;
         }
         .contact-box h2 { margin-bottom: 20px; font-size: 2rem; color: white; }
         .contact-box p { color: rgba(255,255,255, 0.9); }
         .contact-box a.email-btn { 
-            background: white; 
-            color: var(--primary); 
-            padding: 12px 30px; 
-            border-radius: 30px; 
-            font-weight: bold; 
-            display: inline-block;
-            margin-top: 20px;
+            background: white; color: var(--primary); padding: 12px 30px; 
+            border-radius: 30px; font-weight: bold; display: inline-block; margin-top: 20px;
         }
-        /* Contact box en dark mode : on garde le fond primary car c'est une section "highlight" */
 
         @media (max-width: 768px) {
             header h1 { font-size: 2.5rem; }
             .nav-links { display: none; }
             section { padding: 60px 5%; }
-            .alternance-visual { padding: 30px; }
-            .alternance-content { padding: 30px; }
-            .dossier-box { padding: 30px; }
-            .dossier-box h3 { font-size: 1.3rem; }
-            .dossier-box i { font-size: 3rem; }
+            .alternance-visual, .alternance-content, .dossier-box, .veille-card { padding: 30px; flex-direction: column; text-align: center; }
+            .veille-icon { margin-bottom: 20px; }
             .theme-toggle { margin-left: auto; margin-right: 20px; }
         }
     </style>
@@ -330,9 +238,9 @@
             <li><a href="#alternance">Alternance</a></li>
             <li><a href="#projets-e5">Projets E5</a></li>
             <li><a href="#projets-e6">Projets E6</a></li>
+            <li><a href="#veille">Veille</a></li>
             <li><a href="#contact">Contact</a></li>
         </ul>
-        
         <button id="theme-toggle" class="theme-toggle" aria-label="Changer le thème">
             <i class="fa-solid fa-moon"></i>
         </button>
@@ -357,38 +265,13 @@
             <div class="divider"></div>
             <p>Les environnements et outils que je maîtrise.</p>
         </div>
-
         <div class="skills-grid">
-            <div class="skill-item">
-                <i class="fa-brands fa-windows"></i>
-                <h3>Windows Server</h3>
-                <span>AD DS, DNS, DHCP, GPO</span>
-            </div>
-            <div class="skill-item">
-                <i class="fa-brands fa-linux"></i>
-                <h3>Linux</h3>
-                <span>Debian</span>
-            </div>
-            <div class="skill-item">
-                <i class="fa-solid fa-network-wired"></i>
-                <h3>Réseau</h3>
-                <span>VLAN</span>
-            </div>
-            <div class="skill-item">
-                <i class="fa-solid fa-server"></i>
-                <h3>Virtualisation</h3>
-                <span>VMware</span>
-            </div>
-            <div class="skill-item">
-                <i class="fa-solid fa-lock"></i>
-                <h3>Sécurité</h3>
-                <span>VPN</span>
-            </div>
-            <div class="skill-item">
-                <i class="fa-solid fa-cubes"></i>
-                <h3>Supervision</h3>
-                <span>GLPI</span>
-            </div>
+            <div class="skill-item"><i class="fa-brands fa-windows"></i><h3>Windows Server</h3><span>AD DS, DNS, DHCP, GPO</span></div>
+            <div class="skill-item"><i class="fa-brands fa-linux"></i><h3>Linux</h3><span>Debian</span></div>
+            <div class="skill-item"><i class="fa-solid fa-network-wired"></i><h3>Réseau</h3><span>VLAN</span></div>
+            <div class="skill-item"><i class="fa-solid fa-server"></i><h3>Virtualisation</h3><span>VMware</span></div>
+            <div class="skill-item"><i class="fa-solid fa-lock"></i><h3>Sécurité</h3><span>VPN</span></div>
+            <div class="skill-item"><i class="fa-solid fa-cubes"></i><h3>Supervision</h3><span>GLPI</span></div>
         </div>
     </section>
 
@@ -398,7 +281,6 @@
             <div class="divider"></div>
             <p>Mon poste en alternance pour cette 2ème année.</p>
         </div>
-
         <div class="alternance-card">
             <div class="alternance-visual">
                 <img src="omexom.png" alt="Logo Omexom">
@@ -407,19 +289,9 @@
                 <span class="alternance-tag">En Poste</span>
                 <h3 style="font-size: 2rem; margin-bottom: 10px; color: var(--text-dark);">Omexom</h3>
                 <p style="margin-bottom: 20px; color: var(--text-light);">Omexom est la marque de VINCI Energies dédiée aux infrastructures d'énergies.</p>
-                
-                <div class="info-row">
-                    <i class="fa-solid fa-location-dot"></i>
-                    <span>5 rue Arnavielle, 30900 Nîmes</span>
-                </div>
-                <div class="info-row">
-                    <i class="fa-solid fa-user-tie"></i>
-                    <span>Assistant Technique Informatique</span>
-                </div>
-                <div class="info-row">
-                    <i class="fa-solid fa-calendar-check"></i>
-                    <span>Depuis Septembre 2023</span>
-                </div>
+                <div class="info-row"><i class="fa-solid fa-location-dot"></i><span>5 rue Arnavielle, 30900 Nîmes</span></div>
+                <div class="info-row"><i class="fa-solid fa-user-tie"></i><span>Assistant Technique Informatique</span></div>
+                <div class="info-row"><i class="fa-solid fa-calendar-check"></i><span>Depuis Septembre 2023</span></div>
             </div>
         </div>
     </section>
@@ -430,17 +302,11 @@
             <div class="divider"></div>
             <p>Support et mise à disposition de services informatiques.</p>
         </div>
-
         <div class="dossier-box">
             <i class="fa-solid fa-folder-open"></i>
             <h3>Dossier E5 Complet</h3>
-            <p>
-                Accédez à mon tableau de compétences officiel ainsi qu'à l'ensemble des mini-projets et documentations techniques.
-            </p>
-            
-            <a href="e5.html" class="btn btn-primary">
-                Accéder aux projets E5 <i class="fa-solid fa-arrow-right" style="margin-left: 10px;"></i>
-            </a>
+            <p>Accédez à mon tableau de compétences officiel ainsi qu'à l'ensemble des mini-projets et documentations techniques.</p>
+            <a href="e5.html" class="btn btn-primary">Accéder aux projets E5 <i class="fa-solid fa-arrow-right" style="margin-left: 10px;"></i></a>
         </div>
     </section>
 
@@ -450,17 +316,62 @@
             <div class="divider"></div>
             <p>Conception et maintenance d'une solution d'infrastructure (Projets de stage).</p>
         </div>
-
         <div class="dossier-box">
             <i class="fa-solid fa-folder-open"></i>
             <h3>Dossier E6 Complet</h3>
-            <p>
-                Retrouvez les détails de mes missions en stage ainsi que les rapports techniques associés à mes projets E6.
-            </p>
-            
-            <a href="e6.html" class="btn btn-primary">
-                Accéder aux projets E6 <i class="fa-solid fa-arrow-right" style="margin-left: 10px;"></i>
-            </a>
+            <p>Retrouvez les détails de mes missions en stage ainsi que les rapports techniques associés à mes projets E6.</p>
+            <a href="e6.html" class="btn btn-primary">Accéder aux projets E6 <i class="fa-solid fa-arrow-right" style="margin-left: 10px;"></i></a>
+        </div>
+    </section>
+
+    <section id="veille">
+        <div class="section-head">
+            <h2>Veille Technologique</h2>
+            <div class="divider"></div>
+            <p>Sujet d'actualité suivi pour l'épreuve E4.</p>
+        </div>
+
+        <div class="veille-container">
+            <div class="veille-card">
+                <div class="veille-icon">
+                    <i class="fa-brands fa-windows"></i>
+                </div>
+                <div class="veille-content">
+                    <span class="veille-badge">Infrastructure & Sécurité</span>
+                    <h3>Fin de support Windows 10 (2025)</h3>
+                    <p style="margin-bottom: 20px;">
+                        Microsoft a annoncé la fin des mises à jour de sécurité pour Windows 10 le <strong>14 octobre 2025</strong>. Cette obsolescence programmée pose des risques majeurs de cybersécurité (failles non patchées, ransomwares).
+                    </p>
+                    
+                    <ul class="veille-points">
+                        <li>
+                            <i class="fa-solid fa-check-circle"></i>
+                            <span><strong>Problématique :</strong> Incompatibilité matérielle (puce TPM 2.0 requise) qui empêche la mise à niveau simple de certains parcs.</span>
+                        </li>
+                        <li>
+                            <i class="fa-solid fa-check-circle"></i>
+                            <span><strong>Solutions :</strong> Audit du parc informatique, renouvellement du matériel obsolète ou souscription au support étendu (ESU) payant.</span>
+                        </li>
+                        <li>
+                            <i class="fa-solid fa-check-circle"></i>
+                            <span><strong>Stratégie SISR :</strong> Forcer le déploiement de Windows 11 via GPO/Intune sur les postes éligibles pour garantir la conformité.</span>
+                        </li>
+                    </ul>
+
+                    <div class="veille-sources">
+                        <small><i class="fa-solid fa-link"></i> Sources : Microsoft Learn, ANSSI, ZDNet</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="outils-box">
+            <h3><i class="fa-solid fa-toolbox"></i> Mes outils de veille :</h3>
+            <div class="outils-list">
+                <span class="outil-tag"><i class="fa-solid fa-rss"></i> Feedly</span>
+                <span class="outil-tag"><i class="fa-brands fa-linkedin"></i> LinkedIn</span>
+                <span class="outil-tag"><i class="fa-brands fa-google"></i> Google Alerts</span>
+            </div>
         </div>
     </section>
 
@@ -468,16 +379,10 @@
         <div class="contact-box">
             <h2>Prêt à collaborer ?</h2>
             <p>Je suis à l'écoute d'opportunités pour la suite de mon parcours.</p>
-            
             <a href="mailto:liamgibergues@gmail.com" class="email-btn">Me contacter par Email</a>
-            
             <div style="margin-top: 30px; font-size: 1.5rem;">
-                <a href="https://www.linkedin.com/in/liam-gibergues/" target="_blank" style="background:none; color:white; padding:0 10px;">
-                    <i class="fa-brands fa-linkedin"></i>
-                </a>
-                <a href="#" style="background:none; color:white; padding:0 10px;">
-                    <i class="fa-brands fa-github"></i>
-                </a>
+                <a href="https://www.linkedin.com/in/liam-gibergues/" target="_blank" style="background:none; color:white; padding:0 10px;"><i class="fa-brands fa-linkedin"></i></a>
+                <a href="#" style="background:none; color:white; padding:0 10px;"><i class="fa-brands fa-github"></i></a>
             </div>
         </div>
     </section>
@@ -490,17 +395,13 @@
         const toggleBtn = document.getElementById('theme-toggle');
         const body = document.body;
         const icon = toggleBtn.querySelector('i');
-
-        // Vérifier le stockage local
         const currentTheme = localStorage.getItem('theme');
         if (currentTheme === 'dark') {
             body.classList.add('dark-mode');
             icon.classList.replace('fa-moon', 'fa-sun');
         }
-
         toggleBtn.addEventListener('click', () => {
             body.classList.toggle('dark-mode');
-
             if (body.classList.contains('dark-mode')) {
                 localStorage.setItem('theme', 'dark');
                 icon.classList.replace('fa-moon', 'fa-sun');
